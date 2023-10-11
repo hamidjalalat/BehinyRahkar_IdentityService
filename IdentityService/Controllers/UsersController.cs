@@ -32,9 +32,9 @@ namespace LoggingMicroservice.Api.Controllers
         }
         #endregion /Post (Create user)
 
-        #region Post (Get User)
-        [Microsoft.AspNetCore.Mvc.HttpPost(template: "/GetUser")]
-        public async Task<IActionResult> GetUser(string username, string password)
+        #region Post (Get GetCreateToken)
+        [Microsoft.AspNetCore.Mvc.HttpPost(template: "/token")]
+        public async Task<IActionResult> GetCreateToken(string username, string password)
         {
             var request =
                 new GetByUserNameQuery
@@ -49,6 +49,6 @@ namespace LoggingMicroservice.Api.Controllers
 
             return FluentResult(result: result);
         }
-        #endregion Post (Get User)
+        #endregion Post (Get GetCreateToken)
     }
 }
