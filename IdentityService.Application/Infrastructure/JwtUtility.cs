@@ -1,4 +1,5 @@
 ﻿using IdentityService.Domain.Models;
+using IdentityService.Persistence.ViewModels;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -29,10 +30,12 @@ namespace IdentityService.Application.Infrastructure
             var tokenDescriptor = new Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[] { 
+                                                     new Claim(ClaimTypes.Name, user.UserName),
+                                                     new Claim(nameof(user.Role), user.Role),
                                                      new Claim(nameof(user.FirstName), user.FirstName),
                                                      new Claim(nameof(user.LastName), user.LastName),
-                                                     new Claim(ClaimTypes.Name, user.UserName),
                                                      new Claim(ClaimTypes.Email, user.EmailAddress),
+                                                     new Claim(nameof(user.Services), user.Services),
                                                      new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),     }),
 
                 Expires = DateTime.UtcNow.AddMinutes(expireMinutes),

@@ -34,7 +34,9 @@ namespace IdentityService.Domain.Models
 
         [System.ComponentModel.DataAnnotations.Required]
         public string Password { get; set; }
-         
-         
+
+        public string Services { get; set; }
+
+        public string Role { get; set; }
     }
 }

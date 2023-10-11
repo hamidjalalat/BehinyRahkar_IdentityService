@@ -20,6 +20,10 @@
 
         public string Password { get; set; }
 
+        public string Services { get; set; }
+
+        public string Role { get; set; }
+
 
     }
 }

@@ -54,12 +54,6 @@ namespace IdentityService.Application.Users.CommandHandlers
 
                 //موقت تا زمانی که بانک اطلاعاتی راه بندازم
 				userViewModel.Token = token;
-				userViewModel.Services = new string[2];
-
-                userViewModel.Services[0] ="ProductService";
-                userViewModel.Services[1] = "Logservice";
-
-                userViewModel.Role = "admin";
 
                 result.WithValue(value: userViewModel);
 			}
