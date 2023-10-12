@@ -43,19 +43,24 @@ namespace IdentityService.Application.Users.CommandHandlers
 				{
                     result.WithError(" نا معتبر می باشد");
 				}
+				else
+				{
+                    if (string.Compare(User.Password, request.Password, ignoreCase: false) == 0)
+                    {
+                        string token = Infrastructure.JwtUtility.GenerateJwtToken(User, 120);
 
-                if (string.Compare(User.Password, request.Password, ignoreCase: false) != 0)
-                {
+                        GetUsersQueryResponseViewModel userViewModel = Mapper.Map<GetUsersQueryResponseViewModel>(User);
+
+                        userViewModel.Token = token;
+
+                        result.WithValue(value: userViewModel);
+                    }
+					else
+					{
+
                     result.WithError(" نام کاربری یا پسورد اشتباه می باشد");
+					}
                 }
-				string token = Infrastructure.JwtUtility.GenerateJwtToken(User, 120);
-
-                GetUsersQueryResponseViewModel userViewModel = Mapper.Map<GetUsersQueryResponseViewModel>(User);
-
-                //موقت تا زمانی که بانک اطلاعاتی راه بندازم
-				userViewModel.Token = token;
-
-                result.WithValue(value: userViewModel);
 			}
 			catch (System.Exception ex)
 			{

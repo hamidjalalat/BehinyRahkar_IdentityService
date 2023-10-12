@@ -20,16 +20,16 @@ namespace LoggingMicroservice.Api.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         #region Post (Create user)
-        [Microsoft.AspNetCore.Mvc.HttpPost(template: "/CreateUser")]
+        //[Microsoft.AspNetCore.Mvc.HttpPost(template: "/CreateUser")]
 
-        public async Task<Microsoft.AspNetCore.Mvc.IActionResult>
-            CreateUser(CreateUserCommand request)
-        {
-            var result =
-                await Mediator.Send(request);
+        //public async Task<Microsoft.AspNetCore.Mvc.IActionResult>
+        //    CreateUser(CreateUserCommand request)
+        //{
+        //    var result =
+        //        await Mediator.Send(request);
 
-            return FluentResult(result: result);
-        }
+        //    return FluentResult(result: result);
+        //}
         #endregion /Post (Create user)
 
         #region Post (Get GetCreateToken)
