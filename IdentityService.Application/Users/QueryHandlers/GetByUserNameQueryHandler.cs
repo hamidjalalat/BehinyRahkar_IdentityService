@@ -37,7 +37,7 @@ namespace IdentityService.Application.Users.CommandHandlers
 				var User =
 					await
 					UnitOfWork.Users
-					.GetByUserNameAsync(username:request.UserName.ToLower());
+					.GetByUserNameAsync(username:request.UserName.Trim().ToLower());
 
 				if (User==null)
 				{
@@ -57,8 +57,7 @@ namespace IdentityService.Application.Users.CommandHandlers
                     }
 					else
 					{
-
-                    result.WithError(" نام کاربری یا پسورد اشتباه می باشد");
+                       result.WithError(" نام کاربری یا پسورد اشتباه می باشد");
 					}
                 }
 			}
