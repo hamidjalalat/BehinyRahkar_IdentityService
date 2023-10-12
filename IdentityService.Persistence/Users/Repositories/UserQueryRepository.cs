@@ -22,8 +22,8 @@ namespace IdentityService.Persistence.Users.Repositories
 			var result =
 				await
 				DbSet
-			
-				.Select(current => new ViewModels.GetUsersQueryResponseViewModel()
+                //موقت تا زمانی که بانک اطلاعاتی راه بندازم
+                .Select(current => new ViewModels.GetUsersQueryResponseViewModel()
 				{
 					Id = current.Id,
 					UserName=current.UserName,
@@ -39,33 +39,8 @@ namespace IdentityService.Persistence.Users.Repositories
 			return result;
 		}
 
-		//موقت تا زمانی که بانک اطلاعاتی راه بندازم
-        public override Task<User> GetByIdAsync(Guid id)
-        {
-			GetUsersQueryResponseViewModel result = new GetUsersQueryResponseViewModel()
-			{
-				Id = id,
-				UserName="Hjalalat",
-				FirstName="Hamid",
-				LastName="Jalalat",
-				EmailAddress="hjalalat@yahoo.com",
-			};
-
-            return base.GetByIdAsync(id);
-        }
-
-        //موقت تا زمانی که بانک اطلاعاتی راه بندازم
         public async Task<Domain.Models.User> GetByUserNameAsync(String username)
         {
-			//GetUsersQueryResponseViewModel result = new GetUsersQueryResponseViewModel()
-			//{
-			//    Id = new Guid(),
-			//    UserName = username,
-			//    FirstName = "Hamid",
-			//    LastName = "Jalalat",
-			//    EmailAddress = "hjalalat@yahoo.com",
-			//};
-
 			var result =
 			await
 			DbSet.Where(C => C.UserName == username)

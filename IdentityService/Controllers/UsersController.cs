@@ -3,7 +3,7 @@ using IdentityService.Application.Users.Queries;
 using Microsoft.AspNetCore.Mvc;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace LoggingMicroservice.Api.Controllers
+namespace IdentityService.Api.Controllers
 {
     [Microsoft.AspNetCore.Mvc.ApiController]
     [Microsoft.AspNetCore.Mvc.Route
