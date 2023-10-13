@@ -11,7 +11,7 @@ namespace IdentityService.Application.RevokeTokens.Commands
 				.NotEmpty()
 				.WithMessage(errorMessage: "وارد کردن توکن اجباری می باشد")
                 .Must(current => current.Length > 200 )
-                       .WithMessage("توکن نباید کمتر 200 کارکتر باشد"); 
+                .WithMessage(errorMessage:"توکن نباید کمتر 200 کارکتر باشد"); 
         }
 	}
 }
