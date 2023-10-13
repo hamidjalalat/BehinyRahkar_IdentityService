@@ -14,6 +14,7 @@ namespace IdentityService.Persistence
 
 		
 		public DbSet<User> Users { get; set; }
+		public DbSet<RevokeToken> RevokeTokens { get; set; }
 		
 
 		protected override void OnModelCreating

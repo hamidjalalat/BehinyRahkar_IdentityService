@@ -1,4 +1,5 @@
-﻿using IdentityService.Persistence.ViewModels;
+﻿using IdentityService.Application.RevokeTokens.Commands;
+using IdentityService.Persistence.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace IdentityService.Application.Users
         {
             CreateMap<Commands.CreateUserCommand, Domain.Models.User>();
             CreateMap<Domain.Models.User, Commands.CreateUserCommand>();
+
+            CreateMap<CreateRevokeTokenCommand, Domain.Models.RevokeToken>();
+            CreateMap<Domain.Models.RevokeToken, CreateRevokeTokenCommand>();
 
             CreateMap<GetUsersQueryResponseViewModel, Domain.Models.User>();
             CreateMap<Domain.Models.User, GetUsersQueryResponseViewModel>();

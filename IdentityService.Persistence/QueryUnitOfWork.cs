@@ -23,5 +23,21 @@
 				return _users;
 			}
 		}
-	}
+
+        private RevokeTokens.Repositories.IRevokeTokenQueryRepository _revokeTokens;
+
+        public RevokeTokens.Repositories.IRevokeTokenQueryRepository RevokeTokens
+        {
+            get
+            {
+                if (_revokeTokens == null)
+                {
+                    _revokeTokens =
+                        new RevokeTokens.Repositories.RevokeTokenQueryRepository(databaseContext: DatabaseContext);
+                }
+
+                return _revokeTokens;
+            }
+        }
+    }
 }
